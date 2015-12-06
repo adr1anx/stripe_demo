@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  http_basic_authenticate_with name: 'admin', password: 'five67', only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
@@ -71,4 +72,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :price, :description)
     end
+
 end
