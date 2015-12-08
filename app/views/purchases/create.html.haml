@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p Thanks for your purchase!  You can find a summary of the charge below.  We've also sent an email with this information.
+
+%table.table
+  %thead
+    %tr
+      %th Product Purchased
+      %th Amount Charged
+      %th Description
+      %th Transaction ID
+
+  %tbody
+    %tr
+      %td= @product.name
+      %td= number_to_currency @charge.amount / 100.0
+      %td= @product.description
+      %td= @charge.id
+
+
+= link_to 'Back to products', products_path

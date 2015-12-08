@@ -4,10 +4,23 @@
   = @product.name
 %p
   %strong Price:
-  = @product.price
+  = number_to_currency @product.price
 %p
   %strong Description:
   = @product.description
+
+- if seller?
+  = form_tag purchases_path do
+    = hidden_field_tag "product[id]", @product.id
+    %article
+      - if flash[:error].present?
+        #error_explanation
+          %p= flash[:error]
+    %script.stripe-button{"data-amount" => "#{@product.price_cents}", "data-description" => "#{@product.name}", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
+- else
+  = link_to "Connect to stripe", "/auth/stripe_connect?return_to=#{request.url}", class: "stripe-connect"
+
+
 = link_to 'Edit', edit_product_path(@product)
 |
 = link_to 'Back', products_path

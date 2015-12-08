@@ -14,4 +14,8 @@ RSpec.describe Product, type: :model do
   it 'is invalid without a description' do
     expect(build(:product, description: nil)).to_not be_valid
   end
+  
+  it 'should calculate a 10% app fee' do
+    expect(create(:product).application_fee).to eq(234)
+  end
 end

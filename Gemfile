@@ -6,6 +6,9 @@ gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'bootstrap', '~> 4.0.0.alpha1'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,13 +41,13 @@ gem 'haml-rails', '~> 0.9'
 gem 'money-rails'
 
 gem 'omniauth-stripe-connect'
+gem 'stripe'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.1'
   gem 'factory_girl_rails'
-  gem 'capybara'
   gem 'database_cleaner'
   
   gem 'dotenv-rails'

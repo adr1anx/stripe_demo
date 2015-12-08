@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   resources :products
+  resources :purchases, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  # for omniauth
+  get '/auth/:provider/callback', to: 'sessions#create'
+  delete '/sessions', to: 'sessions#destroy'
   # You can have the root of your site routed with "root"
   root 'products#index'
 
