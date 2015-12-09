@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Setting up development.
 
-Things you may want to cover:
+clone the repo, bundle install, and set up your environment variables.  You'll need postgres for this application - it uses the rails-money gem which uses the money column type for postgres.  If you have it installed, simply createdb revv_development to create the development database.  You'll also want to create a revv_test database for running tests.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Very few environment variables are needed.  For ease of use, there is an included .env.development file with stripe dev credentials included.  DEV_USER and DEV_PASSWORD may be needed for postgres.
